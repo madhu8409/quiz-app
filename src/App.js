@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BooksQuestionaire } from './components';
+import EntertainmentQues from './components/EntertainmentQues';
+import RoomScreen from './components/RoomScreen';
+import { Route, Routes} from 'react-router-dom';
+import ScienceQuestionaire from './components/ScienceQuestionaire';
+import SportsQuestionaire from './components/SportsQuestionaire';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+   return (
+    <>
+        <div>
+          <Routes>
+            <Route exact path='/' element={<RoomScreen/>} />
+            <Route path='/books-quiz' element={<BooksQuestionaire/>} />
+            <Route path='/entertainment-quiz' element={<EntertainmentQues/>} />
+            <Route path='/science-quiz' element={ <ScienceQuestionaire/>} />
+            <Route path='/sports-quiz' element={<SportsQuestionaire/>} />
+          </Routes>
+        </div>
+     
+    </>
+  )
 }
 
-export default App;
+export default App
